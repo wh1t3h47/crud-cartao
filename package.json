@@ -1,0 +1,37 @@
+{
+  "name": "cchecker",
+  "version": "0.0.1",
+  "description": "Crud cartão",
+  "main": "build/index.js",
+  "repository": "https://github.com/wh1t3h47/crud-cartao",
+  "author": "wh1t3h47 <tom.mharres@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:clean": "if [ -d build ]; then rm -r build/; fi",
+    "clean": "yarn build:clean",
+    "build": "yarn build:clean && tsc; if [ ! -d build ] || [ ! -f build/index.js ]; then echo 'failed: build did not yield result'; fi",
+    "start": "if [ ! -d build ] || [ ! -f build/index.js ]; then yarn build; fi; node build/index.js",
+    "serve": "ts-node-dev src/index.ts",
+    "lint": "eslint --fix --ext .ts src/ \"src/*\" -c .eslintrc.json"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.14.1-alpha.2",
+    "@typescript-eslint/parser": "^4.14.0",
+    "eslint": "^7.18.0",
+    "eslint-plugin-import": "^2.22.1",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.12"
+  }
+}
